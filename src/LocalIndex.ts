@@ -373,8 +373,8 @@ export class LocalIndex {
             throw new Error('Index does not exist');
         }
 
-        const data = await fs.readFile(path.join(this._folderPath, 'index.json'));
-        this._data = JSON.parse(data.toString());
+        const data = require(path.join(this._folderPath, 'index.json'));
+        this._data = data;
     }
 
     private async addItemToUpdate(item: Partial<IndexItem<any>>, unique: boolean): Promise<IndexItem> {
